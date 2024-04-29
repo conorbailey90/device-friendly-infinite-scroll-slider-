@@ -21,6 +21,7 @@ class ImageContainer{
         this.translateNum = +this.parentEl.dataset.transform;
         this.appendImage();
         this.setDimensions()
+        this.addEventListeners();
     }
 
     appendImage(){
@@ -37,6 +38,12 @@ class ImageContainer{
     setDimensions(){
         let {left, width} = this.viewPort.getBoundingClientRect();
         this.centerRef = left + (width / 2)
+    }
+
+    addEventListeners(){
+        window.addEventListener('resize', () => {
+           this.setDimensions();
+        })
     }
 
     animate(){

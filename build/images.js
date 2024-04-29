@@ -1,16 +1,16 @@
 class ImageContainer {
-    constructor(imgSrc, parentEl, position) {
+    constructor(imgSrc, parentEl, position
+    // No need to use this keyword for these parameters as they use the public keyword which automatically asigns these.
+    ) {
         this.imgSrc = imgSrc;
         this.parentEl = parentEl;
         this.position = position;
-        // this.imgSrc = imgSrc;
         this.translateX = 0;
-        // this.parentEl = parentEl;
-        // this.position = position;
         this.viewPort = document.querySelector('.slider__viewport');
         this.translateNum = +this.parentEl.dataset.transform;
         this.appendImage();
         this.setDimensions();
+        this.addEventListeners();
     }
     appendImage() {
         this.el = document.createElement('div');
@@ -25,6 +25,11 @@ class ImageContainer {
     setDimensions() {
         let { left, width } = this.viewPort.getBoundingClientRect();
         this.centerRef = left + (width / 2);
+    }
+    addEventListeners() {
+        window.addEventListener('resize', () => {
+            this.setDimensions();
+        });
     }
     animate() {
         let { left, width } = this.parentEl.getBoundingClientRect();
