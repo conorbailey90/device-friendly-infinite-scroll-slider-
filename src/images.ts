@@ -14,11 +14,9 @@ class ImageContainer{
         public imgSrc: string, 
         public parentEl: HTMLElement,
         public position: string
+        // No need to use this keyword for these parameters as they use the public keyword which automatically asigns these.
     ){
-        this.imgSrc = imgSrc;
         this.translateX = 0;
-        this.parentEl = parentEl;
-        this.position = position;
         this.viewPort = document.querySelector('.slider__viewport')
         this.translateNum = +this.parentEl.dataset.transform;
         this.appendImage();
@@ -49,14 +47,22 @@ class ImageContainer{
 }
 
 const images: string[] = [
-    './1.avif',
-    './2.avif',
-    './3.avif',
-    './4.avif',
-    './5.avif',
-    './6.avif',
-    './7.avif',
-    './8.avif',
+    './build/assets/images/1.avif',
+    './build/assets/images/2.avif',
+    './build/assets/images/3.avif',
+    './build/assets/images/4.avif',
+    './build/assets/images/5.avif',
+    './build/assets/images/6.avif',
+    './build/assets/images/7.avif',
+    './build/assets/images/8.avif',
+    './build/assets/images/1.avif',
+    './build/assets/images/2.avif',
+    './build/assets/images/3.avif',
+    './build/assets/images/4.avif',
+    './build/assets/images/5.avif',
+    './build/assets/images/6.avif',
+    './build/assets/images/7.avif',
+    './build/assets/images/8.avif',
     
 ]
 

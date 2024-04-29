@@ -3,10 +3,10 @@ class ImageContainer {
         this.imgSrc = imgSrc;
         this.parentEl = parentEl;
         this.position = position;
-        this.imgSrc = imgSrc;
+        // this.imgSrc = imgSrc;
         this.translateX = 0;
-        this.parentEl = parentEl;
-        this.position = position;
+        // this.parentEl = parentEl;
+        // this.position = position;
         this.viewPort = document.querySelector('.slider__viewport');
         this.translateNum = +this.parentEl.dataset.transform;
         this.appendImage();
