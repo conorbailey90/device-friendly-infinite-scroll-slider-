@@ -35,8 +35,7 @@ positionElements(countersArray, 'top');
 // Add and position images
 let imageContainers = [];
 for (let i = 0; i < slidesArray.length; i++) {
-    let position = slidesArray[i].dataset.justify;
-    let imageContainer = new ImageContainer(images[i], slidesArray[i], position);
+    let imageContainer = new ImageContainer(images[i], slidesArray[i]);
     imageContainers.push(imageContainer);
 }
 // Desktop 
@@ -75,7 +74,7 @@ function animate() {
         speedX *= 0.95; // Adjust the deceleration factor as needed
         transform += speedX;
     }
-    // Rest transform position at limit to get infinite effect
+    // Reset transform position at limit to get infinite effect
     if (transform > slideWidth * (slidesArray.length / 4))
         transform = -(slideWidth * (slidesArray.length / 4));
     if (transform < -(slideWidth * (slidesArray.length / 4)))

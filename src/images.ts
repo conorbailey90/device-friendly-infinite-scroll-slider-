@@ -10,10 +10,10 @@ class ImageContainer{
     centerRef: number;
     parentCenter: number;
     translateNum: number;
+
     constructor(
         public imgSrc: string, 
         public parentEl: HTMLElement,
-        public position: string
         // No need to use this keyword for these parameters as they use the public keyword which automatically asigns these.
     ){
         this.translateX = 0;
@@ -28,7 +28,6 @@ class ImageContainer{
         this.el = document.createElement('div');
         this.el.classList.add('image__container');
         this.el.style.width = this.parentEl.dataset.width;        
-        this.parentEl.style.alignItems = this.position;
         this.image = document.createElement('img');
         this.image.src = this.imgSrc;
         this.el.appendChild(this.image);
@@ -36,8 +35,7 @@ class ImageContainer{
     }
 
     setDimensions(){
-        let {left, width} = this.viewPort.getBoundingClientRect();
-        this.centerRef = left + (width / 2)
+        this.centerRef = window.innerWidth / 2;
     }
 
     addEventListeners(){

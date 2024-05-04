@@ -24,13 +24,13 @@ function cloneElements(elements: HTMLElement[], array: HTMLElement[]){
         let clone = elements[i].cloneNode(true) as HTMLElement;
         clone.classList.add('clone');
         elements[i].parentElement.appendChild(clone);
-        array.push(clone)
+        array.push(clone);
     }
 }
 
 function positionElements(elementsArray: HTMLElement[], position: string){
     elementsArray.forEach((element, idx ) => {
-        let percent: number = (idx -  (elementsArray.length /2)) * 100
+        let percent: number = (idx -  (elementsArray.length /2)) * 100;
         element.style[`${position}`] = `${percent}%`;
     })
 }
@@ -49,8 +49,7 @@ positionElements(countersArray, 'top')
 
 let imageContainers: ImageContainer[] = [];
 for(let i = 0; i < slidesArray.length; i++){
-    let position: string = slidesArray[i].dataset.justify;
-    let imageContainer = new ImageContainer(images[i], slidesArray[i], position);
+    let imageContainer = new ImageContainer(images[i], slidesArray[i]);
     imageContainers.push(imageContainer);
 }
 
@@ -101,13 +100,13 @@ function animate() {
         speedX *= 0.95; // Adjust the deceleration factor as needed
         transform += speedX;  
     }
-    // Rest transform position at limit to get infinite effect
+    // Reset transform position at limit to get infinite effect
     if(transform > slideWidth * (slidesArray.length / 4)) transform = -(slideWidth * (slidesArray.length / 4));
     if(transform < -(slideWidth * (slidesArray.length / 4))) transform = (slideWidth * (slidesArray.length / 4));
     for(let i = 0; i < slidesArray.length; i++){
         slidesArray[i].style.transform = `translateX(${(transform / (window.innerWidth * .6)) * 100}%)`;
         countersArray[i].style.transform = `translateY(${(transform / (window.innerWidth * .6)) * 100}%)`;
-        imageContainers[i].animate()
+        imageContainers[i].animate();
     }
 
     requestAnimationFrame(animate);

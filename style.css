@@ -5,6 +5,7 @@
     list-style: none;
     font-family: sans-serif;
     color: white;
+ 
 }
 
 html, body{
@@ -42,7 +43,7 @@ main{
     height: 100%;
     width: 60vw;
     /* border: 1px solid blue; */
-    background-color: white;
+       background-color: white;
 
 }
 
@@ -98,7 +99,6 @@ main{
     height: 25px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 
@@ -109,16 +109,25 @@ main{
     position: absolute;
     display: flex;
     justify-content: center;
-    /* border: 2px solid red; */
     will-change: transform;
+}
+
+[data-justify="flex-start"] {
+    align-items: flex-start;
+}
+
+[data-justify="center"] {
+    align-items: center;
+}
+
+[data-justify="flex-end"] {
+    align-items: flex-end;
 }
 
 .image__container{
     position: relative;
-    /* width: 80%; */
     aspect-ratio: 16 / 9;
     position: relative;
-    /* border: 1px solid red; */
     will-change: transform;
 }
 
